@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munkáink - Krebsz Car Care</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">
+                    <img src="img/logo/logo.png" alt="Krebsz Car Care - Polírozás és Autókozmetika" class="logo-img">
+                </a>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html">Főoldal</a>
+                    <a href="services.html">Szolgáltatások</a>
+                    <a href="gallery.html" class="active">Munkáink</a>
+                    <a href="contact.html">Kapcsolat</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="page-header">
+        <div class="container">
+            <h1>Munkáink</h1>
+            <p>Nézd meg eddigi munkáinkat</p>
+        </div>
+    </div>
+
+    <section class="gallery-full">
+        <div class="container">
+            <div class="gallery-filters">
+                <button class="filter-btn active" data-filter="all">Összes</button>
+                <button class="filter-btn" data-filter="exterior">Külső</button>
+                <button class="filter-btn" data-filter="interior">Belső</button>
+                <button class="filter-btn" data-filter="ceramic">Kerámia</button>
+                <button class="filter-btn" data-filter="paint">Fényezés</button>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item" data-category="exterior">
+                    <iframe src="img/gallery/before-after-1.html" style="border: none; width: 100%; height: 300px;"></iframe>
+                    <div class="gallery-caption">
+                        <h3>Külső Tisztítás</h3>
+                        <p>Teljes külső átalakulás</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="interior">
+                    <iframe src="img/gallery/before-after-2.html" style="border: none; width: 100%; height: 300px;"></iframe>
+                    <div class="gallery-caption">
+                        <h3>Belső Tisztítás</h3>
+                        <p>Alapos belső tisztítás</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="ceramic">
+                    <iframe src="img/gallery/before-after-3.html" style="border: none; width: 100%; height: 300px;"></iframe>
+                    <div class="gallery-caption">
+                        <h3>Kerámia Bevonat</h3>
+                        <p>Hosszan tartó védelem</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="paint">
+                    <iframe src="img/gallery/before-after-4.html" style="border: none; width: 100%; height: 300px;"></iframe>
+                    <div class="gallery-caption">
+                        <h3>Fényezésjavítás</h3>
+                        <p>Hologramok és karcolások eltávolítása</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2024 Krebsz Car Care. Minden jog fenntartva.</p>
+                    <p>Naszály Út 18., Vác 2600 | Tel: +36 70 518 5906</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=61575495853115" class="social-link" title="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/krebsz_car_care/" class="social-link" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@krebszcarcare" class="social-link" title="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Gallery filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+
+                const filter = this.getAttribute('data-filter');
+                
+                document.querySelectorAll('.gallery-item').forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
